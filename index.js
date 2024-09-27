@@ -2,22 +2,37 @@ const express = require('express') // impor modul express
 const app = express() // insialisasi express
 const port = 3000 //port
  
+app.set('view engine','ejs');
+
 // route untuk halaman home
 app.get('/',(req, res) => {
-//  res.send('Selamat datang di ExpressJS');
-    res.sendFile(__dirname + '/index.html');
+    // res.send("Hello");
+    // res.sendFile(__dirname + "/index.html");
+    const berita = [
+        {
+            judul:'Berita 1',
+            isi:'isi berita 1'
+        },
+        {
+            judul:'Berita 2',
+            isi:'isi berita 2'
+        },
+    ];
+    res.render('index',{title: 'Halaman Home',berita});
 });
  
 // route untuk halaman about
 app.get('/about',(req, res) => {
 //   res.send('Ini halaman tentang saya');
-    res.sendFile(__dirname + '/about.html');
+    // res.sendFile(__dirname + '/about.html');
+    res.render('about',{title: 'Halaman About'});
 });
  
 // route untuk halaman contact
 app.get('/contact', (req, res) => {
     // res.send('Contact Us');
-    res.sendFile(__dirname + "/contact.html");
+    // res.sendFile(__dirname + "/contact.html");
+    res.render('contact',{title: 'Halaman Kontak'});
 });
 
 // route mahasiswa
@@ -52,6 +67,48 @@ app.get('/dosen',(req, res) => {
         ] 
     })
 });
+
+app.get('/prodi',(req, res) => {
+    const prodi = [
+        {
+            prodi:'Sistem Informasi',
+            fakultas:'FIKR',
+            singkatan:'SI'
+            
+        },
+        {
+            prodi:'Informatika',
+            fakultas:'FIKR',
+            singkatan:'IF'
+            
+        },
+        {
+            prodi:'Teknik Elektro',
+            fakultas:'FIKR',
+            singkatan:'TE'
+            
+        },
+        {
+            prodi:'Manajemen Informatika',
+            fakultas:'FIKR',
+            singkatan:'MI'
+            
+        },
+        {
+            prodi:'Manajemen',
+            fakultas:'FEB',
+            singkatan:'MJ'
+            
+        },
+        {
+            prodi:'Akuntansi',
+            fakultas:'FEB',
+            singkatan:'AK'
+            
+        },
+    ];
+    res.render('prodi',{title: 'Halaman Prodi',prodi});
+})
 
 
 

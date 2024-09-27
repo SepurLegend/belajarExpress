@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        /* Warna latar biru untuk baris ganjil */
+        tbody tr:nth-child(odd) {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prodi</h1>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About us</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+    <li><a href="/prodi">Prodi</a></li>
+
+    <h4>Program Studi</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Prodi</th>
+                <th>Fakultas</th>
+                <th>Singkatan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% prodi.forEach(data => { %>
+                <tr>
+                    <td><%= data.prodi %></td>
+                    <td><%= data.fakultas %></td>
+                    <td><%= data.singkatan %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
