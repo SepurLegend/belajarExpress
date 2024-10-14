@@ -1,5 +1,43 @@
-<h1>Home</h1>
-<h4>Berita Terkini</h4>
-<% berita.forEach(data => { %>
-<%= data.judul %>
-<p><%= data.isi %></p><% }) %>
+<style>
+    .carousel-inner img {
+    width: 100%;        /* Pastikan gambar mengisi seluruh lebar carousel */
+    height: 400px;      /* Atur tinggi gambar sesuai keinginan */
+    object-fit: cover;  /* Menjaga proporsi gambar tanpa distorsi */
+}
+
+</style>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./img/1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./img/2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./img/3.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<br>
+<h1>Berita Terkini</h1>
+<div class ='row'>
+    <% berita.forEach(data => { %>
+        <div class='col'>
+            <%= data.judul %>
+            <p><%= data.isi %>
+                <br>
+                <button type="button" class="btn btn-primary">Lihat Berita</button>
+             </p><% }) %>
+        </div>     
+</div>
+
